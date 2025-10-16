@@ -1,3 +1,87 @@
+// module to demonstrate various functions on a queue 
+
+module queue_functions;
+  int q1[$];
+  bit[31:0]q2[$:3];
+  int val;
+  
+  initial
+    begin
+      q1={1,2,3};
+      q2={1,2,3,4};
+      
+      $display("size of q1=%0d",q1.size());
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+      $display("size of q2=%0d",q2.size());
+      foreach(q2[i])
+        $display("%0d",q2[i]);
+      
+      // inserting value at 2nd location
+      $display("\n inserting value at 2nd location");
+      q1.insert(1,5);
+      $display("size of q1=%0d",q1.size());
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+      //deleting value at 3rd location
+      $display("\n deleting value at 3rd location");
+      q1.delete(2);
+      $display("size of q1=%0d",q1.size());
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+      //push_front operation for both
+      $display("\n push_front operation for q1:unbounded queue");
+      q1.push_front(9);
+      $display("size of q1=%0d",q1.size());
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+      //push_front operation for both
+      $display("\n push_front operation for q2:bounded queue");
+      q2.push_front(9);
+      $display("size of q2=%0d",q2.size());
+      foreach(q2[i])
+        $display("%0d",q2[i]);
+      
+      //push_back operation for both
+      $display("\n push_back operation for q1:unbounded queue");
+      q1.push_back(9);
+      $display("size of q1=%0d",q1.size());
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+      //push_back operation for both
+      $display("\n push_back operation for q2:bounded queue");
+      q2.push_back(9);
+      $display("size of q2=%0d",q2.size());
+      foreach(q2[i])
+        $display("%0d",q2[i]);
+      
+      //pop_back operation
+      $display("\n pop_back operation for q1:unbounded queue");
+      val=q1.pop_back();
+      $display("value of popped element=%0d",val);
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+      //pop_front operation
+      $display("\n pop_front operation for q1:unbounded queue");
+      val=q1.pop_front();
+      $display("value of popped element=%0d",val);
+      foreach(q1[i])
+        $display("%0d",q1[i]);
+      
+    end
+endmodule
+
+
+
+
+
+
 
 // output obtained in EDAplaygroud
 
